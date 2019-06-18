@@ -55,8 +55,6 @@ class ToDoListFragment : BaseFragment() {
     }
 
     private fun startSignIn(){
-        showProgress()
-
         val intent = AuthUI.getInstance().createSignInIntentBuilder()
             .setAvailableProviders(listOf(AuthUI.IdpConfig.EmailBuilder().build()))
             .setIsSmartLockEnabled(false)
@@ -83,7 +81,6 @@ class ToDoListFragment : BaseFragment() {
 
     private fun loadDataPostSignIn() {
         root.recycler_view.bind(toDoViewModel.getTasks(), singleLayout = R.layout.view_item_todo_task){ taskSnapShot, pos ->
-            dismissProgress()
 
             val task = taskSnapShot.toObject(Task::class.java)!!
 
