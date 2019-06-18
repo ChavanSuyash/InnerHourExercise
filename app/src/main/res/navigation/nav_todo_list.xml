@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/nav_todo_list"
+            app:startDestination="@id/toDoListFragment">
+
+    <fragment android:id="@+id/toDoListFragment"
+              android:name="com.innerhour.exercise.features.todolist.ui.ToDoListFragment"
+              android:label="ToDoListFragment">
+        <action android:id="@+id/action_toDoListFragment_to_addToDoTaskFragment"
+                app:destination="@id/addToDoTaskFragment"/>
+        <action android:id="@+id/action_toDoListFragment_to_toDoTaskDetails"
+                app:destination="@id/toDoTaskDetails"/>
+    </fragment>
+
+    <fragment android:id="@+id/addToDoTaskFragment"
+              android:name="com.innerhour.exercise.features.addtodotask.ui.AddToDoTaskFragment"
+              android:label="AddToDoTaskFragment"/>
+
+
+    <fragment android:id="@+id/toDoTaskDetails"
+              android:name="com.innerhour.exercise.features.todotaskdetails.ui.ToDoTaskDetails"
+              android:label="ToDoTaskDetails">
+
+        <argument
+                android:name="id"
+                app:argType="string"/>
+
+    </fragment>
+
+</navigation>

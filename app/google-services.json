@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "876746092833",
+    "firebase_url": "https://innerhour-exercise.firebaseio.com",
+    "project_id": "innerhour-exercise",
+    "storage_bucket": "innerhour-exercise.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:876746092833:android:666f55c161baa1e9",
+        "android_client_info": {
+          "package_name": "com.innerhour.exercise"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "876746092833-69lvmlqgp5lpg4nbof3psoaa47ol0s5j.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCcu9vmzKdDj1O9H58FdLrHhT81fNKextA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "876746092833-69lvmlqgp5lpg4nbof3psoaa47ol0s5j.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
