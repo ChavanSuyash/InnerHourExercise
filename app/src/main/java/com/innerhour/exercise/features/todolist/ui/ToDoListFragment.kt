@@ -49,12 +49,14 @@ class ToDoListFragment : BaseFragment() {
         if (requestCode == RC_SIGN_IN) {
             if (resultCode != AppCompatActivity.RESULT_OK)
                 startSignIn()
+            else loadDataPostSignIn()
 
-            loadData()
         }
     }
 
     private fun startSignIn(){
+        showProgress()
+
         val intent = AuthUI.getInstance().createSignInIntentBuilder()
             .setAvailableProviders(listOf(AuthUI.IdpConfig.EmailBuilder().build()))
             .setIsSmartLockEnabled(false)
@@ -64,8 +66,6 @@ class ToDoListFragment : BaseFragment() {
     }
 
     override fun assignListener() {
-        (root.recycler_view.adapter as FastListAdapter).startListening()
-
         root.add_task.setOnClickListener {
             val direction = ToDoListFragmentDirections.actionToDoListFragmentToAddToDoTaskFragment()
             findNavController().navigate(direction)
@@ -78,7 +78,12 @@ class ToDoListFragment : BaseFragment() {
 
     override fun loadData() {
         dismissProgress()
+        if(!shouldStartSignIn()) loadDataPostSignIn()
+    }
+
+    private fun loadDataPostSignIn() {
         root.recycler_view.bind(toDoViewModel.getTasks(), singleLayout = R.layout.view_item_todo_task){ taskSnapShot, pos ->
+            dismissProgress()
 
             val task = taskSnapShot.toObject(Task::class.java)!!
 
@@ -126,6 +131,8 @@ class ToDoListFragment : BaseFragment() {
                 findNavController().navigate(direction)
             }
         }
+
+        (root.recycler_view.adapter as FastListAdapter).startListening()
     }
 
 }
